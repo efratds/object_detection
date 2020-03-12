@@ -123,11 +123,11 @@ if __name__ == "__main__":
             try:
                 print("<<<",filename,">>>")
                 im = load_from_path((os.path.join(img_directory, filename)))
-                localize_objects = localize_objects(im)
-                detect_labels = detect_labels(im)
-                detect_safe_search = detect_safe_search(im)
+                localize_objects_df = localize_objects(im)
+                detect_labels_df = detect_labels(im)
+                detect_safe_search_df = detect_safe_search(im)
 
-                tmp = pd.concat([localize_objects, detect_labels, detect_safe_search], axis=1, sort=False)
+                tmp = pd.concat([localize_objects_df, detect_labels_df, detect_safe_search_df], axis=1, sort=False)
                 data = data.append(tmp, ignore_index=True)
 
             except Exception as e:
